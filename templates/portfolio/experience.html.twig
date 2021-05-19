@@ -3,7 +3,7 @@
 {% block title %}expériences{% endblock %}
 
 {% block body %}
-    <h1>Mes expériences</h1>
+    <h1>Mes expériences pro</h1>
     <table class="table table-hover">
         <thead>
         <tr>
@@ -14,26 +14,14 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">2020</th>
-            <td>Résomedia - le plan immobilier</td>
-            <td>Alternant développeur fullstack</td>
-            <td>Développement Symfony, javascript, jquery, mongodb...</td>
-        </tr>
-        <tr>
-            <th scope="row">2019</th>
-            <td>Matière 1ère</td>
-            <td>Stagiaire intégrateur - développeur</td>
-            <td>wordpress, prestashop, développement PHP JS</td>
-        </tr>
-        <tr>
-            <th scope="row">2010 - 2018</th>
-            <td>Piscine market</td>
-            <td>Employé de site e-commerce</td>
-            <td>Préparateur de commandes, gestion clientèle, rédaction produit...</td>
-        </tr>
+        {% for expe in experiences %}
+            <tr>
+                <th scope="row">{{ expe.year }}</th>
+                <td>{{ expe.compagny }}</td>
+                <td>{{ expe.job }}</td>
+                <td>{{ expe.mission }}</td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
-
-
 {% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}formations{% endblock %}
+
+{% block body %}
+    <h1>Mes formations</h1>
+    <div class="row">
+
+    {% for education in educations %}
+        <div class="col-4">
+
+    <div class="card text-white bg-primary mb-3">
+        <div class="card-header">{{ education.degree|capitalize }}</div>
+        <div class="card-body">
+            <h4 class="card-title">{{ education.school }}</h4>
+            <h5 class="card-title">{{ education.year }}</h5>
+            <p class="card-text">{{ education.subject }}</p>
+            <p class="card-text">{{ education.description }}</p>
+        </div>
+    </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

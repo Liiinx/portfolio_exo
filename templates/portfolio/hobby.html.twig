@@ -5,26 +5,17 @@
 {% block body %}
     <h1>Mes hobbies</h1>
     <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link active" data-bs-toggle="tab" href="#dev">Dev</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#guitare">Guitare</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#bar">Bar</a>
-        </li>
+        {% for hobby in hobbies %}
+            <li class="nav-item">
+                <a class="nav-link{% if loop.first %} active{% endif %}" data-bs-toggle="tab" href="#{{ hobby.name|lower }}">{{ hobby.name }}</a>
+            </li>
+        {% endfor %}
     </ul>
     <div id="myTabContent" class="tab-content">
-        <div class="tab-pane fade active show" id="dev">
-            <p>Développer, programmer...</p>
-        </div>
-        <div class="tab-pane fade" id="guitare">
-            <p>Joue un peu pour le plaisir et la détente</p>
-        </div>
-        <div class="tab-pane fade" id="bar">
-            <p>Grande passion depuis plusieurs années... Le covid stoppera peut-être ce vice, et ça sera bien la seule chose positive.<br/>
-            Mais bon... ça ouvre dans 2 jours.</p>
-        </div>
+        {% for hobby in hobbies %}
+            <div class="tab-pane fade show{% if loop.first %} active{% endif %}" id="{{ hobby.name|lower }}">
+                <p>{{ hobby.description }}</p>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
